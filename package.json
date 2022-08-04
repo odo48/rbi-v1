@@ -16,16 +16,28 @@
     "@types/node": "^18.6.3",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
     "concurrently": "^4.1.0",
     "express": "^4.17.0",
+    "prettier-eslint": "^15.0.1",
     "react": "^16.8.6",
+    "react-bootstrap": "^2.4.0",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
+    "sass": "^1.54.2",
     "typescript": "^4.7.4"
   },
   "proxy": "http://localhost:3001",
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "prettier",
+      "prettier/react",
+      "react-app"
+    ],
+    "plugins": [
+      "prettier"
+    ]
   },
   "prettier": {
     "singleQuote": true,
