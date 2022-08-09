@@ -1,0 +1,14 @@
+.items {
+  height: calc(100vh - 260px);
+  overflow: scroll;
+  padding: 32px 40px;
+  background: var(--default-color-background);
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+
+  &--with-history {
+    height: calc(100vh - 360px);
+  }
+}
