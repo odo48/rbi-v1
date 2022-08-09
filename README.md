@@ -6,6 +6,15 @@ In this challenge you will build a basic React application that lets a customer 
 
 `Use this section to add any notes for the reviewer`
 
+---
+The user will be prompted to click the 'Let's eat' button, which will scroll to the section with the menu.
+
+The user can pick anything from the top menu or from the section below.
+
+After one selection it's being made, the history menu will be shown at the bottom right of the page where the user can navigate between the previous selections (back and forward). If the user goes back and makes a new selection, the following history will be overwritten with the new one.
+
+---
+
 ## Instructions
 
 As part of the interview process we would like you to complete a coding challenge that demonstrates your knowledge of JavaScript and React which our entire codebase is built on.
