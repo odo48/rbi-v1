@@ -18,7 +18,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 1;
     overflow: hidden;
     filter: blur(5px);
     background-size: cover;
@@ -29,10 +29,10 @@
     line-height: 76px;
     text-transform: uppercase;
     color: white;
+    z-index: 2;
   }
 
   &--cta {
-    border: none;
     border-radius: 32px;
     background: var(--default-color-orange);
     color: white;
@@ -42,7 +42,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    z-index: 2;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+    }
 
     i::before {
       margin-left: 8px;

@@ -7,9 +7,9 @@ const Welcome = () => {
       <div className={styles['welcome--title']}>
         Skip <br /> &nbsp; the <br /> line
       </div>
-      <button className={styles['welcome--cta']}>
+      <a href="#dashboard" className={styles['welcome--cta']}>
         Let's eat <i className="bi-chevron-down"></i>
-      </button>
+      </a>
     </div>
   );
 };

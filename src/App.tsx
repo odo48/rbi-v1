@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from 'react';
-// import Welcome from './components/Welcome';
+import Welcome from './components/Welcome';
 import Dashboard from './components/Dashboard';
 import { getMenu, getSections, getItems } from './api';
 import { GeneralContext } from 'contexts/GeneralContext';
@@ -89,7 +89,7 @@ const App = () => {
 
   return (
     <div>
-      {/* <Welcome /> */}
+      <Welcome />
       <Dashboard />
     </div>
   );

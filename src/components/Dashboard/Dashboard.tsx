@@ -6,7 +6,7 @@ import styles from './Dashboard.module.scss';
 
 const Dashboard = () => {
   return (
-    <div className={styles['dashboard']}>
+    <div id="dashboard" className={styles['dashboard']}>
       <Menu />
       <Items />
       <History />
