@@ -24,8 +24,12 @@ const Menu = () => {
     position,
   } = useContext(GeneralContext) as IGeneralContext;
 
-  const onSectionClick = (selection: any) => {
-    setHistory([...history, selectedSection]);
+  const onSectionClick = (selection: string) => {
+    if (position !== history.length - 1) {
+      setHistory([...history.slice(0, position + 1), selection]);
+    } else {
+      setHistory([...history, selection]);
+    }
     setSelectedSection(selection);
     setPosition(position + 1);
   };

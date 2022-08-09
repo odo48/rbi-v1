@@ -1,5 +1,5 @@
 import { ISection } from 'contexts/types';
 
-export default interface IItems extends ISection {
+export default interface IItem extends ISection {
   onItemClick: (id?: string, isMenu?: boolean) => {};
 }

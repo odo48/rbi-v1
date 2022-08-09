@@ -4,13 +4,9 @@ import { GeneralContext } from 'contexts/GeneralContext';
 import IGeneralContext from 'contexts/types';
 
 const History = () => {
-  const {
-    history,
-    setSelectedSection,
-    selectedSection,
-    position,
-    setPosition,
-  } = useContext(GeneralContext) as IGeneralContext;
+  const { history, setSelectedSection, position, setPosition } = useContext(
+    GeneralContext
+  ) as IGeneralContext;
 
   const onClick = (increase: boolean) => {
     setPosition(increase ? position + 1 : position - 1);
@@ -18,8 +14,6 @@ const History = () => {
     history &&
       setSelectedSection(history[increase ? position + 1 : position - 1]);
   };
-
-  console.log(history, position, selectedSection);
 
   if (history && history.length <= 1) return <></>;
 

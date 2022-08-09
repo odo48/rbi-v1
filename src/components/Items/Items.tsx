@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect, useCallback } from 'react';
 import styles from './Items.module.scss';
 import { GeneralContext } from 'contexts/GeneralContext';
-import { ISection } from 'contexts/types';
+import { ISection, IItems, IMenuOptions } from 'contexts/types';
 import Item from 'components/Item';
 
 const Items = () => {
@@ -12,13 +12,13 @@ const Items = () => {
 
   const selectItems = useCallback(() => {
     let localOptions = sections?.filter(
-      (section: any) => section.id === selectedSection
+      (section: ISection) => section.id === selectedSection
     )[0]?.options;
 
     if (localOptions) {
       let localUsedItems = [] as Array<ISection>;
-      items?.forEach((item: any) => {
-        localOptions?.forEach((option: any) => {
+      items?.forEach((item: IItems) => {
+        localOptions?.forEach((option: IMenuOptions) => {
           if (item.id === option.ref) {
             localUsedItems.push(item);
           }
@@ -39,7 +39,7 @@ const Items = () => {
 
   useEffect(() => {
     if (selectedSection === 'all') {
-      setUsedItems(sections?.filter((section: any) => section.isMenu));
+      setUsedItems(sections?.filter((section: ISection) => section.isMenu));
       return;
     } else {
       selectItems();

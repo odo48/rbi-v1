@@ -8,8 +8,8 @@ const GeneralProvider = (props: PropsWithChildren) => {
   const [items, setItems] = useState<Array<IItems>>();
   const [sections, setSections] = useState<Array<ISection>>();
   const [selectedSection, setSelectedSection] = useState<string>('all');
-  const [history, setHistory] = useState<string[]>([]);
-  const [position, setPosition] = useState<number>(history?.length || 0);
+  const [history, setHistory] = useState<string[]>(['all']);
+  const [position, setPosition] = useState<number>(0);
 
   return (
     <GeneralContext.Provider
