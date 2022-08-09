@@ -1,10 +1,13 @@
 const express = require('express');
+const cors = require('cors');
 
 const menu = require('./data/menu.json');
 const sections = require('./data/sections.json');
 const items = require('./data/items.json');
 
 const app = express();
+
+app.use(cors());
 
 app.get('/api/menu', (req, res) => {
   setTimeout(() => {
