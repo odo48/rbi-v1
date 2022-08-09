@@ -1,17 +1,9 @@
 import React, { useContext } from 'react';
 import styles from './Menu.module.scss';
-import 'react-multi-carousel/lib/styles.css';
-import Carousel from 'react-multi-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 import { GeneralContext } from 'contexts/GeneralContext';
 import IGeneralContext from 'contexts/types';
-
-const responsive = {
-  desktop: {
-    breakpoint: { max: 3000, min: 0 },
-    items: 4,
-    partialVisibilityGutter: 15,
-  },
-};
+import { CarouselProvider, Slider, Slide } from 'pure-react-carousel';
 
 const Menu = () => {
   const {
@@ -34,54 +26,77 @@ const Menu = () => {
     setPosition(position + 1);
   };
 
+  const getCurrentSlide = () => {
+    if (selectedSection === 'all') {
+      return 0;
+    } else {
+      return menu.options
+        .map(function (el) {
+          return el.ref;
+        })
+        .indexOf(selectedSection);
+    }
+  };
+
   return (
     <div className={styles['menu']}>
       {menu && (
-        <Carousel arrows={false} partialVisible responsive={responsive}>
-          <div
-            onClick={() => onSectionClick('all')}
-            className={styles['menu--item']}
-          >
-            <img
-              className={styles['menu--item__img']}
-              src="logo.png"
-              alt="logo"
-            />
-            <div
-              className={`${styles['menu--item__title']} ${
-                selectedSection === 'all'
-                  ? styles['menu--item__title--selected']
-                  : null
-              }`}
+        <CarouselProvider
+          naturalSlideWidth={150}
+          naturalSlideHeight={125}
+          totalSlides={menu.options.length + 1}
+          visibleSlides={4}
+          isIntrinsicHeight
+          currentSlide={getCurrentSlide()}
+        >
+          <Slider>
+            <Slide
+              onClick={() => onSectionClick('all')}
+              className={styles['menu--item']}
+              index={0}
             >
-              Menu
-            </div>
-          </div>
-          {menu?.options?.map((option) => {
-            return (
+              <img
+                className={styles['menu--item__img']}
+                src="logo.png"
+                alt="logo"
+              />
               <div
-                className={styles['menu--item']}
-                onClick={() => onSectionClick(option.ref)}
-                key={option.key}
+                className={`${styles['menu--item__title']} ${
+                  selectedSection === 'all'
+                    ? styles['menu--item__title--selected']
+                    : null
+                }`}
               >
-                <img
-                  className={styles['menu--item__img']}
-                  src={`images/${option.image}`}
-                  alt={option.name}
-                />
-                <div
-                  className={`${styles['menu--item__title']} ${
-                    selectedSection === option.ref
-                      ? styles['menu--item__title--selected']
-                      : null
-                  }`}
-                >
-                  {option.name}
-                </div>
+                Menu
               </div>
-            );
-          })}
-        </Carousel>
+            </Slide>
+            {menu?.options?.map((option, index) => {
+              return (
+                <Slide
+                  index={index + 1}
+                  className={styles['menu--item']}
+                  onClick={() => onSectionClick(option.ref)}
+                  key={option.key}
+                >
+                  <img
+                    className={styles['menu--item__img']}
+                    src={`images/${option.image}`}
+                    alt={option.name}
+                  />
+                  <div
+                    className={`${styles['menu--item__title']} ${
+                      selectedSection === option.ref
+                        ? styles['menu--item__title--selected']
+                        : null
+                    }`}
+                  >
+                    {option.name}
+                  </div>
+                </Slide>
+              );
+            })}
+          </Slider>
+        </CarouselProvider>
       )}
     </div>
   );

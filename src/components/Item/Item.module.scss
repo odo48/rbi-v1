@@ -36,6 +36,11 @@
       box-shadow: none;
       border-radius: 50%;
       border: none;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
       i::before {
         font-weight: bold !important;

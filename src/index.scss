@@ -33,3 +33,10 @@ body {
   border: 20px solid black;
   border-radius: 12px;
 }
+
+.carousel__inner-slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
