@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Flame';
+  src: local('Flame-Regular'),
+    url('./fonts/FlameRegular.otf') format('opentype'),
+    url('./fonts/Flame-Regular.woff') format('woff');
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'FlameBold';
+  src: local('Flame-Bold'), url('./fonts/FlameBold.otf') format('opentype'),
+    url('./fonts/Flame-Bold.woff') format('woff');
+  font-weight: bold;
+}
+
+:root {
+  --default-font-primary: 'Flame', sans-serif;
+  --default-font-primary-bold: 'FlameBold', sans-serif;
+  --default-color-white: #fff;
+  --default-color-orange: #f17e00;
+  --default-color-maroon: #502314;
+  --default-color-light-maroon: #efece5;
+  --default-color-red: #e6201d;
+  --default-color-background: #f6f6f6;
+
+  background: lightblue;
+}
+
+body {
+  width: 800px;
+  margin: 0 auto !important;
+  border: 20px solid black;
+  border-radius: 12px;
+}
