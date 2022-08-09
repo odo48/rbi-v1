@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './index.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import App from './App';
+import GeneralProvider from 'contexts/GeneralContext';
 
 ReactDOM.render(
-  <h1>
-    <img alt="" src="images/af1af9322d3a27ae9ea9a0a6a142b1c6f34217d9.png" />
-    Hello, world
-  </h1>,
+  <GeneralProvider>
+    <App />
+  </GeneralProvider>,
   document.getElementById('root')
 );
